@@ -1,7 +1,7 @@
 # Final-Project-Statistical-Modelling-with-Python
 
 ## Project/Goals
-The goal of this project is to make a model comparing the Foursquare API and the YELP API in regards to bike stations that were pulled from the city bikes API. The model's goal was to ......
+The goal of this project was to create a model that could predict the number of available bikes using the number of different point of interests close to a bike station. 
 
 ## Process
 The first step of the project was selecting a city and getting data from the city bikes API pertaining to the bike stations, latitude, longitude, and number of bikes. Miami, Florida was chosen and the GET request was made. The data was then parsed and then put into a dataframe called miami_bikes.csv with the latitude, longitude, and number of bikes of each bike station in Miami, Florida. 
@@ -12,7 +12,7 @@ Following, using the miami_bikes.csv, with the Foursquare and Yelp API, restuara
 Using the final dataframes, the results of each API were compared to answer questions such as: which API provides a user with more complete information and what the top 10 restuarants are. 
 
 ### (your step 3)
-The Foursquare API was found to have more complete data was selected for the rest of this project. 
+The Foursquare API was found to have more complete data and was selected for the rest of this project. 
 The foursquare_data.csv and the miami_bikes.csv were combined into a single dataframe. 
 
 With this new dataframe, EDA was performed to get rid of null/duplicate columns. Remove discrepant/irrelevant data and clean rows to make sure that the data was in the appropriate datatype ie._______________________________________. 
@@ -37,7 +37,6 @@ However, yelp = unspecific, difficult to filter (categories= unspecific), unsure
 Popularity vs. Review Count
 Comparing the 2 Rating values. 
 
-The final dataframe, excluding duplicate values: ________________________________.
 
 The 10 restuarants (In descending order) from each respective API. 
 Foursquare: (Grouped by rating, popularity)
