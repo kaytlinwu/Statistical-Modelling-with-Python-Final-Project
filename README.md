@@ -1,7 +1,7 @@
 # Final-Project-Statistical-Modelling-with-Python
 
 ## Project/Goals
-The goal of this project was to create a model that could predict the number of available bikes using the number of different point of interests close to a bike station. 
+The goal of this project was to create a model that could predict the number of available bikes using the rating and popularity of different point of interests close to a bike station. 
 
 ## Fetch bike station and coordinates from city bikes API
 The first step of the project was selecting a city and getting data from the city bikes API pertaining to the bike station's latitude, longitude, and the number of free bikes available. Miami, Florida was chosen a GET request was made to fetch for data. The data was then parsed and put into a dataframe called miami_bikes with the latitude, longitude, and number of bikes of each bike station in Miami, Florida. This dataframe was saved as a csv file called "miami_bikes.csv" so that the data could be used in the following steps. 
@@ -13,12 +13,15 @@ Using the final dataframes, the results of each API were compared to answer ques
 
 
 ### Comparing Yelp and Foursquare Data
-The Foursquare API was found to have more complete data and was selected for the rest of this project. More in delpth analysis can be found in the results section. 
+I used the Foursquare API for the rest of this project. 
 
 The foursquare_data.csv and the miami_bikes.csv were combined into a single dataframe to perform EDA.
 
 
 ### EDA 
+
+For this section of the project, the Foursquare API was selected to be combined to the miami_bikes dataframe. 
+
 Using the combined foursquare_data and miami_bikes_data into a single dataframe, EDA was performed to get rid of null/duplicate columns. Categories were combined into a single category to represent the type of point of interest. Latitude and longitude were removed as they arae not used in the final analysis. Column datatypes were assessed to see if they were appropriate datatype. The bikes column was changed from a "string" to an "interger". 
 
 Visualizations were performed to gain insights and further understanding of data within the dataset. A pairplots with histograms along the diagonal was used to see if there was a visual correlation between the variables. df.describe() was also used to see the initial statistics and look if there were outliers with each column. These insights will be further discuessed in the results section. 
@@ -27,25 +30,27 @@ The final cleaned dataframe was then put into a database using SQLite3. The data
 
 ### Model Building
 
-Model building process. 
+
 
 ## Results
 
 Define what is meant by coverage here:
 
+Coverage in the analysis is seen as how much accurate and complete information can be retrieved from the API itself. Additionally, the quality of the data that is retrieved is also assessed to see if there are inherent areas of error that may be presented in the data that may be retrieved. 
+
 When comparing foursquare and API data that was retrieved from the API, there were areas in which one API was better than the other. 
 
-From one GET request to the Yelp API, more data can be obtained compared to the Foursquare API. From both of the APIs, Yelp and Foursquare, the name, address, categories, rating and price of each business/company/site of interest can be retrieved. Unique to the Yelp API, from one GET request you can also fetch the location's website, phone number/display phone, distance from the bus station that was put in our initial query, whether or not the location offers delivery/pickup services, if the point of interest is closed along with the review count. Contrary to this, Foursquare provides only one unique field different from Yelp which is the popularity.
+From one GET request from the Yelp API, more data can be obtained compared to the Foursquare API. From both of the APIs, Yelp and Foursquare, the name, address, categories, rating and price of each business/company/site of interest can be retrieved. Unique to the Yelp API, from one GET request you can also fetch the location's website, phone number/display phone, distance from the bus station that was put in our initial query, whether or not the location offers delivery/pickup services, and if the point of interest is closed along with the review count. Contrary to this, Foursquare provides only one unique field different from Yelp which is the popularity.
 
-However, when trying to filter to return only restuarants, the yelp was extremely difficult to filter. This is because the categories that are used in the API are relatively unspecific and broad. As a result although restuarants were filtered for, it is difficult to ascertain what type of establishment was pulled. To get the restuarants within the yelp API, one has to filter through exclusion and filter out categories that are not restuarants. This is because categories seeminly unrelated to restuarants including grocery, cafeteria, food market, could be retrieved. Foursquare, on the other hand, had more a more concise and complete description of the point of interest's category. As a result, queries for category was a lot easier to perform. 
+However, when trying to filter the categories that were avaiable, noticebly for the restuarant category, Yelp was extremely difficult to filter. This is because the categories used in the API are relatively unspecific and broad. As a result, although restuarants were filtered for, it is difficult to ascertain what type of establishment was pulled. To get the restuarants within the yelp API, one has to filter through exclusion and filter out categories that are not restuarants.Categories seeminly unrelated to restuarants including grocery, cafeteria, food market, could be retrieved. Foursquare, on the other hand, had more concise and complete descriptions of the point of interest's category. As a result, queries for a point of interest's category was a lot easier to perform. 
 
-In terms of the numerical columns, Yelp seems be be superior to Foursquare. When looking at the yelp rating column, the rating is a calculated value that considers areas of bias to prevent skewing results to businesses with a single review. From the Yelp developers notes, rating is described as an adjusted Bayesian like average rating value that takes into account the number of ratings to adjust the value returned and is displayed as a numerical value between (0-5). On the other hand, Foursquare does not account for this. Rating is a numerical value of the point of interest based on user votes, likes/dislikes,  tips sentiment, and visit data. The rating goes from (0.0-10.0). 
+In terms of the numerical columns, Yelp seems be be superior to Foursquare. When looking at the yelp rating column, the rating is calculated to consider areas of bias in ensure that the rating is not skewed if a business recieves a bad reviews. From the Yelp developers notes, rating is described as an adjusted Bayesian like average rating value that takes into account the number of ratings to adjust the value returned and displays the number as a numerical value between (0-5). On the other hand, Foursquare does not account for this. Rating is a numerical value of the point of interest based on user votes, likes/dislikes,  tips sentiment, and visit data. The rating goes from (0.0-10). 
 
-Yelp price is also quantified by price range. The dollar signs are in the following order: $= under $10, $$=11–30, $$$=31–60, andd $$$$= over $61. In comparison, Foursquare API's price is by: 1- Cheap, 2- Moderate, 3- Expensive, 4- Very Expensive. As seen, the Foursquare API is less specific whereas the Yelp API gives clear indication of price ranges for the price it returns.
+Yelp price is a categorical variable that bins price ranges. The dollar signs are set in the following order: $= under $10, $$=11–30, $$$=31–60, andd $$$$= over $61. In comparison, Foursquare API's price is by: 1- Cheap, 2- Moderate, 3- Expensive, 4- Very Expensive. As seen, the Foursquare API is less specific whereas the Yelp API gives clear indication of price ranges for the price it returns.
 
  Foursquare only unique column "Popularity" returns a numerical value that represents foot traffic to the point of interest. Foursquare using a 6 month interval to calcualte this score. The score is on a 0 to 1 scale. 
 
- In conclusion: The API with better coverage would be Foursquare. 
+ In conclusion: The API with better coverage would be the Yelp API. The numerical categories are better calculated to ensure that data is not skewed. The only disadvantage it has over the Foursquare API is the ability to filter as the categories are broad and difficult to sort through. Additionally, categories such as price give more accurate numerical values and bin the price into price ranges opposed to Foursquare. The Foursquare API uses broad terminology such as Cheap, Moderate, Expensive and Very Expensive but does not include the price ranges. 
 
 The 10 restuarants (In descending order) from each respective API. 
 Foursquare: (Grouped by rating, popularity)
