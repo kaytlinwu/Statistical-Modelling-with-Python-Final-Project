@@ -49,29 +49,29 @@ Yelp price is also quantified by price range. The dollar signs are in the follow
 
 The 10 restuarants (In descending order) from each respective API. 
 Foursquare: (Grouped by rating, popularity)
-1. Doce Provisions, Rating = 9.3
-2. Azucar Ice Cream Company, Rating = 9.0
-3. Lokal Burgers & Beer, Rating = 9.0
-4. Ironside Pizza, Rating = 8.9
-5. Old's Havana Cuban Bar & Cocina, Rating = 8.8
-6. Panther Coffee, Rating =8.8
-7. Cafe La Trova, Rating = 8.8
-8. Union Beer Store, Rating = 8.8
-9. Doggi's Arepa Bar, Rating = 8.8
-10. The Original Daily Bread Marketplace =8.7
+1. Wynwood Art Walk, Rating = 9.4
+2. Broken Shaker, Rating = 9.4
+3. Mandolin Aegean Bistro, Rating = 9.4
+4. Fiorito, Rating = 9.3
+5. Doce Provisions, Rating = 9.3
+6. Il Gabbiano 	, Rating = 9.3 	
+7. Yardbird Southern Table & Bar, Rating = 9.2
+8. Vice City Bean, Rating = 9.2 	
+9. Lagniappe, Rating = 9.2
+10. Macchialina Taverna Rustica = 9.2
 
 *Note that food trucks were included as restuarants in the Yelp query. 
 Yelp: (Grouped by 'Rating', 'Review_Count')
-1. Funnel Cake Miami, Rating = 5.0
-2. Marcelo's Ceviches, Rating = 5.0
-3. Taqueria Los Chilangos, Rating = 4.5
-4. Churromania Little Havana, Rating = 4.5
-5. Shukran Mediterranean Food, Rating =4.5
-6. El Orguillo Latino Kitchen, Rating = 4.5
-7. Russian Store, Rating = 4.5
-8. Poke House Brickell, Rating = 4.5
-9. Ironside Pizza, Rating = 4.0
-10. Purple People Eatery, Rating = 4.0
+1. Meraki Gyro & Bakery, Rating = 5.0
+2. La Burguesa, Rating = 5.0
+3. Café Prima Pasta, Rating = 4.5
+4. Full Bloom Vegan, Rating = 4.5
+5. GoGo Fresh SOBE, Rating =4.5
+6. Il Pastaiolo, Rating = 4.5
+7. Crazy Poke, Rating = 4.5
+8. Luna Pasta e Dolci, Rating = 4.5
+9. Loretta & The Butcher, Rating = 4.5
+10. Ono Poké Shop, Rating = 4.5
 
 EDA Results:
 -What did the visualizations tell you about the dataset
